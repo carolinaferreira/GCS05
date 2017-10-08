@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 2.6)
+
+project(GCS05)
+
+set(PROJECT_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/includes")
+set(PROJECT_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/sources")
+
+set(pokedex_VERSION_MAJOR 1)
+set(pokedex_VERSION_MINOR 0)
+
+configure_file("${PROJECT_SOURCE_DIR}/​includes/version.hpp.in")
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    cmake_minimum_required(VERSION 1.0)
+elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
+    cmake_minimum_required(VERSION 2.1)
+endif()
+
+file(GLOB_RECURSE SOURCES "${PROJECT_SRC_DIR}/*.cpp")
+
+add_executable(gcs05 ${SOURCES})
